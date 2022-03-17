@@ -26,13 +26,11 @@ public class Customer {
             double thisAmount = 0;
 
             Rental each = (Rental) rentals.nextElement();
- 
-
-
-
-            amountFor (each, thisAmount);
             
-            
+            // instancio la clase Rental a través de un constructor sin variables. 
+            Rental renta2= new Rental();
+            // llamada al método. 
+            renta2.getChargetwo(each, thisAmount);
             
             // add frequent renter points
             frequentRenterPoints++;
@@ -54,25 +52,4 @@ public class Customer {
         return _name;
     }
 
-    public double amountFor(Rental each, double thisAmount) {
-        //recolocamos el switch y llamamos las variables each y thisAmount para devolver el double.
-        switch (each.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                thisAmount += 2;
-                if (each.getDaysRented() > 2) {
-                    thisAmount += (each.getDaysRented() - 2) * 1.5;
-                }
-                break;
-            case Movie.NEW_RELEASE:
-                thisAmount += each.getDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS:
-                thisAmount += 1.5;
-                if (each.getDaysRented() > 3) {
-                    thisAmount += (each.getDaysRented() - 3) * 1.5;
-                }
-                break;
-        }
-        return thisAmount;
-    }
 }
