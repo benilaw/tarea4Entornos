@@ -4,11 +4,7 @@ public class Rental {
     private Movie _movie;
     private int _daysRented;
 
-    
-    
     //constructor sin valores para que no necesite introducir valores en la llamada a la clase. 
-
-        
     public int getDaysRented() {
         return _daysRented;
     }
@@ -16,11 +12,11 @@ public class Rental {
     public Movie getMovie() {
         return _movie;
     }
-    
+
     public Rental() {
     }
-     
- // metodo privado 
+
+    // metodo privado 
     private double getCharge(Rental each, double thisAmount) {
         //recolocamos el switch y llamamos las variables each y thisAmount para devolver el double.
         switch (each.getMovie().getPriceCode()) {
@@ -44,8 +40,8 @@ public class Rental {
     }
 // metodo get para llamar el método getCharge que es privado a traves de una clase 
     //pública y de get. 
+
     public double getChargetwo(Rental each, double thisAmount) {
         return this.getCharge(this, _daysRented);
     }
-
-    
+}

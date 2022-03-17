@@ -26,18 +26,14 @@ public class Customer {
             double thisAmount = 0;
 
             Rental each = (Rental) rentals.nextElement();
-            
+
             // instancio la clase Rental a través de un constructor sin variables. 
-            Rental renta2= new Rental();
+            Rental renta2 = new Rental();
             // llamada al método. 
             renta2.getChargetwo(each, thisAmount);
-            
-            // add frequent renter points
-            frequentRenterPoints++;
-            // add bounus for a two day new release rental
-            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1) {
-                frequentRenterPoints++;
-            }
+//llamada al método. 
+            getFrequentRenterPoints(frequentRenterPoints, each);
+
             // show figures for this rental
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
@@ -52,4 +48,14 @@ public class Customer {
         return _name;
     }
 
+    //creamos el método getFrequent con las variables frequentRenterPoints y Rental each, que realiza la busqueda
+    // si no realiza lo llamado devuelve uno, como pide el refactor. 
+    public int getFrequentRenterPoints(int frequentRenterPoints, Rental each) {
+        frequentRenterPoints++;
+        if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1) {
+            frequentRenterPoints++;
+        } else {
+            return 1;
+        }
+    }
 }
