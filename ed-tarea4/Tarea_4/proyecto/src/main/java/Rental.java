@@ -16,10 +16,15 @@ public class Rental {
     public Rental() {
     }
 
-    // metodo privado 
+    // metodo donde trasladamos el metodo a la clase Rental y le cambiamos la propiedad a privada
+    /**
+     * 
+     * @param each
+     * @param thisAmount
+     * @return 
+     */
     private double getCharge(Rental each, double thisAmount) {
-        //recolocamos el switch y llamamos las variables each y thisAmount para devolver el double.
-        switch (each.getMovie().getPriceCode()) {
+         switch (each.getMovie().getPriceCode()) {
             case Movie.REGULAR:
                 thisAmount += 2;
                 if (each.getDaysRented() > 2) {
@@ -40,8 +45,13 @@ public class Rental {
     }
 // metodo get para llamar el método getCharge que es privado a traves de una clase 
     //pública y de get. 
-
+    /**
+     * 
+     * @param each
+     * @param thisAmount
+     * @return 
+     */
     public double getChargetwo(Rental each, double thisAmount) {
-        return this.getCharge(this, _daysRented);
+        return this.getCharge(each, thisAmount);
     }
 }

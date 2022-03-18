@@ -48,8 +48,15 @@ public class Customer {
         return _name;
     }
 
+    
     //creamos el método getFrequent con las variables frequentRenterPoints y Rental each, que realiza la busqueda
-    // si no realiza lo llamado devuelve uno, como pide el refactor. 
+    // si no realiza lo llamado devuelve uno, como pide el refactor.
+    /**
+     * 
+     * @param frequentRenterPoints
+     * @param each
+     * @return 
+     */
     public int getFrequentRenterPoints(int frequentRenterPoints, Rental each) {
         frequentRenterPoints++;
         if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1) {
